@@ -17,6 +17,7 @@ public class MemberSaveServlet extends HttpServlet{
 	
 	private MemberRepository memberRepository = MemberRepository.getInstance();
 	
+	// 비즈니스 로직 수행
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MemberSaveServlet.service");
@@ -25,8 +26,6 @@ public class MemberSaveServlet extends HttpServlet{
 		int age = Integer.parseInt(request.getParameter("age"));
 		
 		Member member = new Member(username, age);
-		
-		System.out.println("member = " + member);
 		
 		memberRepository.save(member);
 		

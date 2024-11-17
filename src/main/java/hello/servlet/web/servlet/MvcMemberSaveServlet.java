@@ -25,9 +25,9 @@ public class MvcMemberSaveServlet extends HttpServlet {
 		
 		Member member = new Member(username, age);
 		
-		System.out.println("member = " + member);
+//		System.out.println("member = " + member);
 		
-		memberRepository.save(member);
+		System.out.println(memberRepository.save(member)); 
 	
 		// Model 객체에 데이터를 보관합니다
 		request.setAttribute("member", member);

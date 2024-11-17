@@ -1,8 +1,6 @@
 package hello.servlet.web.servletmvc;
 
 import java.io.IOException;
-
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,27 +13,32 @@ import javax.servlet.http.HttpServletResponse;
 import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
 
-@WebServlet(name = "mvcmemberListServlet", urlPatterns = "/servlet-mvc/members")
+@WebServlet(name = "mvcMemberListServlet", urlPatterns = "/servlet-mvc/members")
 public class MvcMemberListServlet extends HttpServlet{
 
-	MemberRepository memberRepository = MemberRepository.getInstance();
+	private MemberRepository memberRepository = MemberRepository.getInstance();
+
 	
-	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-	System.out.println("MveMemberListServlet.service");
 	
-	List<Member> members = memberRepository.findAll();
-	
-	//model에 members  리스트 담기 
-	request.setAttribute("members", members);
-	
-	// 화면 준비 
-	
-	String viewPath = "/WEB-INF/views/members.jsp";
-	RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-	dispatcher.forward(request, response);
-	
+	 @Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 System.out.println("MvcMemberListServlet.service");
+		 
+		 List<Member> members = memberRepository.findAll();
+		 // model 에 members 리스트 담기
+		 request.setAttribute("members", members);
+		 
+		 // 화면 준비
+		 String viewPath = "/WEB-INF/views/members.jsp";
+		 RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+		 dispatcher.forward(request, response);
+		 
 	}
 	
 }
+
+
+
+
+
+

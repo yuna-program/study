@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "memberFormServlet", urlPatterns = "/servlet/members/new-form")
+@WebServlet(name = "memberormServlet", urlPatterns = "/servlet/members/new-form")
 public class MemberFormServlet extends HttpServlet{
 	
 	

@@ -25,7 +25,7 @@ public class MemberRepository {
 	
 	// 회원 등록
 	public Member save(Member member) {
-		member.setId(++sequence); // 회원등록 시점에 아이디 자동생성
+		member.setId(++sequence);
 		store.put(member.getId(), member);
 		return member;
 	}
