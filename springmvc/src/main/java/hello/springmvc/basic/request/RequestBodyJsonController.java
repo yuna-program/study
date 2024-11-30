@@ -19,19 +19,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class RequestBodyJsonController {
-	
-	// json으로 파싱된 값을 객체 형태로 다시 파싱할때 씀 
+	// json으로 파싱된 값을 객체 형태로 다시 파싱할때 씀
 	// json과 객체 형식간의 변환을 처리하기 위한 객체
-	
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
 	@PostMapping("/request-body-json-v1")
 	public void requestBodyJsonV1(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		ServletInputStream inputStream  = request.getInputStream();
+		ServletInputStream inputStream = request.getInputStream();
 		String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
 		
-		log.info("messageBody={}", messageBody);
+//		log.info("messageBody={}", messageBody);
 		log.info(messageBody);
 		
 		HelloData data = objectMapper.readValue(messageBody, HelloData.class);
@@ -39,7 +36,6 @@ public class RequestBodyJsonController {
 		log.info("username={}, age={}", data.getUsername(), data.getAge());
 		
 		response.getWriter().write("ok");
-		
 	}
 	
 }
