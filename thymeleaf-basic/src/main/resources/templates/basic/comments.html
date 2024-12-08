@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>예시</h1>
+	<span th:text="${data}">html data</span>
+	
+	<h1>1. 표준 html 주석</h1>
+	<!-- ctrl + shift + / -->
+	<!--  -->
+	
+	<h1>2. 타임리프 파서 parser 주석</h1>
+	<!--/* [[${data}]] */-->
+	<!-- /*--> 
+	<span th:text="${data}">html data</span>
+	<!-- /*-->
+	
+	<h1>3. 타임리프 프로토타입 prototype 주석</h1>
+	<!-- /*/	
+	<span th:text="${data}">html data</span>
+	
+	/*/ -->
+	
+	<!-- 
+		1. 표준주석
+		: 타임리프 렌더링 안하고 
+		그대로 남겨둠
+		
+		2. 타임리프 파서주석(디자이너들만 공유하는 주석일때)
+		: 렌더링에서 주석부분 제거
+		
+		3. 타임리프 프로토타입 주석(개발자들끼리 공유하는 주석)
+		: 렌더링시에만 보여짐
+		: html 경로 그대로 열어보면
+		주석처리가 되지만 
+		렌더링하면 화면에 보여짐
+			
+	
+	
+	 -->
+</body>
+</html>

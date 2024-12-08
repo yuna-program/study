@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>부분 포함</h1>
+	<h1>부분 포함 insert</h1> <!-- insert 속성 지정한 div 태그 안에 fragment 추가 -->
+	<div th:insert="~{template/fragment/footer :: copy}"></div>
+	
+	<h1>부분 포함 replace</h1> <!-- insert 속성 지정한 div 태그를 fragment 코드로 대체함 -->
+	<div th:replace="~{template/fragment/footer :: copy}"></div>
+	
+	<h1>부분 포함 단순표현식</h1>
+	<div th:replace="template/fragment/footer :: copy"></div>
+	
+	<h1>파라미터 사용</h1>
+	<div th:replace="~{template/fragment/footer :: copyParam('데이터1', '데이터2')}"></div>
+	 
+	<!-- 
+		<footer th:fragment="copy">
+			푸터자리
+		</footer>
+		
+		<footer th:fragment="copyParam(parm1, param2)">
+			<p>파라미터 자리</p>
+			<p th:text="${param1}"></p>
+			<p th:text="${param2}"></p>
+		</footer>
+	 -->
+</body>
+</html>

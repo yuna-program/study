@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 자바스크립트 인라인 적용 전 -->
+	<!-- 
+		네추럴 템플릿 기능 동작 안함/ 렌더링 부분 주석처리됨
+	    객체를 toString()으로 출력함
+	 -->
+	
+	<script>
+		var username = [[${user.username}]];
+		var age = [[${user.age}]];
+		
+		// 자바스크립트 네츄럴 템플릿
+		var username2 = /*[[${user.username}]]*/ "test username";
+		
+		// 객체 
+		var user = [[${user}]];	
+	</script>
+
+	<!-- 자바스크립트 인라인 적용 후 -->
+	<!-- 
+		네추럴 템플릿 기능동작
+		객체를 json으로 자동 변환
+	 -->
+	<script th:inline="javascript">
+		var username = [[${user.username}]];
+		var age = [[${user.age}]];
+		
+		// 자바스크립트 네츄럴 템플릿
+		var username2 = /*[[${user.username}]]*/ "test username";
+		
+		// 객체 
+		var user = [[${user}]];	
+	</script>
+
+	<script th:inline="javascript">
+		[# th:each="user, userStat : ${users}"]
+		var user[[${userStat.count}]] = [[${user}]];
+		[/]
+	</script>
+	
+</body>
+</html>
